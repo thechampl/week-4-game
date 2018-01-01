@@ -1,0 +1,48 @@
+body {
+    background-image: url("C:\Users\lukec\Desktop\homework\week-4-game\assets\background.png")
+}
+
+#header{
+    float: left;
+    background-color: orange;
+    color: white;
+    margin: 2%;
+    padding: 5%;
+    width: auto;
+    }
+
+#instructions{
+    background-color: #FBE6CD;
+    color: green;
+    font-size: 20px;
+    
+}
+
+.crystalpics{
+    width: 20%;
+}
+#crystals{
+}
+
+#randomnumber{
+    width: 20%;
+    height: 20%;
+    background-color: green;
+    margin-left: 10%;
+}
+
+#tracker{
+    font-size: 20px;
+    margin-bottom: 5%;
+    background-color: teal;
+    margin-right: 20%;
+    margin-left: 10%;
+    width: 20%;
+    }
+
+
+#totalscore{
+    margin-left: 10%;
+    margin-bottom: 5%;
+    background-color: blue;
+}

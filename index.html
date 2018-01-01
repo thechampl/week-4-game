@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crystals Collector</title>
+
+    <!-- Link to reset -->
+    <link rel="stylesheet" href="assets/reset.css">
+
+    <!-- Link to bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Link to css -->
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- Link to javascript page -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+
+
+            {/* Global Variables */ }
+            var wins = 0
+            var loses = 0
+            var totalscore = 0
+            var randomnumber = Math.floor((Math.random() * 50) + 30);
+            var crystalnumberone = "";
+            var crystalnumbertwo = "";
+            var crystalnumberthree = "";
+            var crystalnumberfour = "";
+
+            var crystalnumbers = [1, 2, 3, 5]
+            document.getElementById("totalscore").textContent = totalscore;
+            document.getElementById("randomnumber").textContent = randomnumber;
+
+            var crystalnumberone = crystalnumbers[Math.floor(Math.random() * crystalnumbers.length)];
+            var crystalnumbertwo = crystalnumbers[Math.floor(Math.random() * crystalnumbers.length)];
+            var crystalnumberthree = crystalnumbers[Math.floor(Math.random() * crystalnumbers.length)];
+            var crystalnumberfour = crystalnumbers[Math.floor(Math.random() * crystalnumbers.length)];
+            $("#picone").click(function () {
+                totalscore + crystalnumberone
+            })
+            $("#pictwo").click(function () {
+                totalscore + crystalnumbertwo
+            })
+            $("#picthree").click(function () {
+                totalscore + crystalnumberthree
+            })
+            $("#picfour").click(function () {
+                totalscore + crystalnumberfour
+            })
+
+            if (
+                totalscore === randomnumber) {
+                wins += 1;
+                document.getElementById("wins").textContent = wins;
+
+            }
+
+    
+
+        });
+    </script>
+
+
+    <div class="container">
+        <div id="header" class="col-md-3">
+            <h1>CrystalsCollector</h1>
+        </div>
+
+        <div class="row"></div>
+
+        <div id="instructions" class="col-md-5">
+            <p>You will be given a random number at the start of the game.</p>
+            <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total
+                score.</p>
+            <p>You win the game by matching your total score to random number, you lose the game if your total score goes above
+                the random number.</p>
+            <p>The value of each crystal is hidden from you until you click on it</p>
+            <p>Each time when the game starts, the game will change the values of each crystal.</p>
+        </div>
+        <div id="tracker" class="col-md-1">
+            <div id="wins" class="col-md-12">
+                Wins:
+            </div>
+            <div id="loses" class="col-md-12">
+                Loses:
+            </div>
+        </div>
+
+        <div id="totalscore" class="col-md-3">
+            <h2>Your Total Score is:
+                <span id="totalscore"></span>
+            </h2>
+        </div>
+
+        <div id="randomnumber" class="col-md-2">
+            <span id="randomnumber"></span>
+
+            <div class="row"></div>
+
+
+
+        </div>
+
+
+
+        <div class="row"></div>
+
+        <div id="crystals" class="col-md-6">
+            <img id="picone" class="crystalpics" src="assets/one.png" alt="Crystal">
+            <img id="pictwo" class="crystalpics" src="assets/2.jpg" alt="Crystal">
+            <img id="picthree" class="crystalpics" src="assets/3.jpg" alt="Crystal">
+            <img id="picfour" class="crystalpics" src="assets/4.jpg" alt="Crystal">
+        </div>
+
+        <div class="row"></div>
+
+
+
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>
