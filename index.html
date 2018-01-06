@@ -42,38 +42,97 @@
             var crystalnumbertwo = "";
             var crystalnumberthree = "";
             var crystalnumberfour = "";
+            console.log(randomnumber);
+                     var crystalnumbers = [1, 2, 3, 5]
+            $("#totalscore").text(totalscore);
+            $("#randomnumber").text(randomnumber);
 
-            var crystalnumbers = [1, 2, 3, 5]
-            document.getElementById("totalscore").textContent = totalscore;
-            document.getElementById("randomnumber").textContent = randomnumber;
+            var randomNumberOne = Math.floor(Math.random() * crystalnumbers.length)
+            var crystalnumberone = crystalnumbers[randomNumberOne];
+            crystalnumbers.splice(randomNumberOne,1)
+            console.log(crystalnumbers);
+            
+            var randomNumbertwo = Math.floor(Math.random() * crystalnumbers.length)
+            var crystalnumbertwo = crystalnumbers[randomNumbertwo];
+            crystalnumbers.splice(randomNumbertwo,1)
+            console.log(crystalnumbers);
 
-            var crystalnumberone = crystalnumbers[Math.floor(Math.random() * crystalnumbers.length)];
-            var crystalnumbertwo = crystalnumbers[Math.floor(Math.random() * crystalnumbers.length)];
-            var crystalnumberthree = crystalnumbers[Math.floor(Math.random() * crystalnumbers.length)];
-            var crystalnumberfour = crystalnumbers[Math.floor(Math.random() * crystalnumbers.length)];
+            var randomnumberthree = Math.floor(Math.random() * crystalnumbers.length)
+            var crystalnumberthree = crystalnumbers[randomnumberthree];
+            crystalnumbers.splice(randomnumberthree,1)
+            console.log(crystalnumbers);
+
+           var randomnumberfour = Math.floor(Math.random() * crystalnumbers.length)
+            var crystalnumberfour = crystalnumbers[randomnumberfour];
+            crystalnumbers.splice(randomnumberfour,1)
+            console.log(crystalnumbers);
+            
+
+            //console log tests
+
+            console.log(crystalnumberone);
+            console.log(crystalnumbertwo);
+            console.log(crystalnumberthree);
+            console.log(crystalnumberfour);
+
+
             $("#picone").click(function () {
-                totalscore + crystalnumberone
+                totalscore = crystalnumberone + totalscore
+                $("#totalscore").empty(); $("#totalscore").append(totalscore);
+                console.log(totalscore)
             })
             $("#pictwo").click(function () {
-                totalscore + crystalnumbertwo
+                totalscore = crystalnumbertwo + totalscore;
+                $("#totalscore").empty(); $("#totalscore").append(totalscore);
             })
             $("#picthree").click(function () {
-                totalscore + crystalnumberthree
+                totalscore = crystalnumberthree + totalscore;
+                $("#totalscore").empty(); $("#totalscore").append(totalscore);
             })
             $("#picfour").click(function () {
-                totalscore + crystalnumberfour
+                totalscore = crystalnumberfour + totalscore;
+                $("#totalscore").empty(); $("#totalscore").append(totalscore);
             })
 
-            if (
+           
+        
+            $(".crystalpics").click(function () {
+                if (
                 totalscore === randomnumber) {
                 wins += 1;
-                document.getElementById("wins").textContent = wins;
+                $("#winNumber").replaceWith(wins);
+                //$("#winNumber").append(wins);
+                crystalnumbers.push(crystalnumberone, crystalnumbertwo, crystalnumberthree, crystalnumberfour);
+                $("#randomnumber").empty();
+                $("#totalscore").empty();
+                totalscore = 0;
+                randomnumber = Math.floor((Math.random() * 50) + 30);
+                $("#randomnumber").text(randomnumber);               
+                
+                }
+                else if(
+                    totalscore > randomnumber) {
+                loses += 1;
+                $("#loseNumber").append(loses);
+                crystalnumbers.push(crystalnumberone, crystalnumbertwo, crystalnumberthree, crystalnumberfour);
+                $("#randomnumber").empty();
+                $("#totalscore").empty();
+                $("#loseNumber").replaceWith(loses);
+                totalscore = 0;
+                randomnumber = Math.floor((Math.random() * 50) + 30);
+                $("#randomnumber").text(randomnumber);       
+                
+               }
 
-            }
+               console.log("Wins: " + wins)
+               console.log("Loses: " + loses);
 
-    
+            })
 
+       
         });
+
+
     </script>
 
 
@@ -95,21 +154,20 @@
         </div>
         <div id="tracker" class="col-md-1">
             <div id="wins" class="col-md-12">
-                Wins:
+                Wins: <div id="winNumber"></div>
             </div>
             <div id="loses" class="col-md-12">
-                Loses:
+                Loses: <div id="loseNumber"></div>
             </div>
         </div>
 
         <div id="totalscore" class="col-md-3">
-            <h2>Your Total Score is:
-                <span id="totalscore"></span>
+            <h2>Your Total Score is:      
             </h2>
         </div>
 
         <div id="randomnumber" class="col-md-2">
-            <span id="randomnumber"></span>
+            
 
             <div class="row"></div>
 
