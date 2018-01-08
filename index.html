@@ -26,137 +26,20 @@
     <!-- Link to javascript page -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-
-
-
-
-            {/* Global Variables */ }
-            var wins = 0
-            var loses = 0
-            var totalscore = 0
-            var randomnumber = Math.floor((Math.random() * 50) + 30);
-            var crystalnumberone = "";
-            var crystalnumbertwo = "";
-            var crystalnumberthree = "";
-            var crystalnumberfour = "";
-            console.log(randomnumber);
-                     var crystalnumbers = [1, 2, 3, 5]
-            $("#totalscore").text(totalscore);
-            $("#randomnumber").text(randomnumber);
-
-            
-
-            var randomNumberOne = Math.floor(Math.random() * crystalnumbers.length)
-            var crystalnumberone = crystalnumbers[randomNumberOne];
-            crystalnumbers.splice(randomNumberOne,1)
-            console.log(crystalnumbers);
-            
-            var randomNumbertwo = Math.floor(Math.random() * crystalnumbers.length)
-            var crystalnumbertwo = crystalnumbers[randomNumbertwo];
-            crystalnumbers.splice(randomNumbertwo,1)
-            console.log(crystalnumbers);
-
-            var randomnumberthree = Math.floor(Math.random() * crystalnumbers.length)
-            var crystalnumberthree = crystalnumbers[randomnumberthree];
-            crystalnumbers.splice(randomnumberthree,1)
-            console.log(crystalnumbers);
-
-           var randomnumberfour = Math.floor(Math.random() * crystalnumbers.length)
-            var crystalnumberfour = crystalnumbers[randomnumberfour];
-            crystalnumbers.splice(randomnumberfour,1)
-            console.log(crystalnumbers);
-            
-            function reset() {
-            randomNumberOne = Math.floor(Math.random() * crystalnumbers.length);
-            crystalnumberone = crystalnumbers[randomNumberOne];
-            randomNumbertwo = Math.floor(Math.random() * crystalnumbers.length);
-            crystalnumbertwo = crystalnumbers[randomNumbertwo];
-            randomnumberthree = Math.floor(Math.random() * crystalnumbers.length);
-            crystalnumberthree = crystalnumbers[randomnumberthree];
-            randomnumberfour = Math.floor(Math.random() * crystalnumbers.length);
-            crystalnumberfour = crystalnumbers[randomnumberfour];}
-
-        
-
-            //console log tests
-
-            console.log(crystalnumberone);
-            console.log(crystalnumbertwo);
-            console.log(crystalnumberthree);
-            console.log(crystalnumberfour);
-
-
-            $("#picone").click(function () {
-                totalscore = crystalnumberone + totalscore
-                $("#totalscore").empty(); $("#totalscore").append(totalscore);
-                console.log(totalscore)
-            })
-            $("#pictwo").click(function () {
-                totalscore = crystalnumbertwo + totalscore;
-                $("#totalscore").empty(); $("#totalscore").append(totalscore);
-            })
-            $("#picthree").click(function () {
-                totalscore = crystalnumberthree + totalscore;
-                $("#totalscore").empty(); $("#totalscore").append(totalscore);
-            })
-            $("#picfour").click(function () {
-                totalscore = crystalnumberfour + totalscore;
-                $("#totalscore").empty(); $("#totalscore").append(totalscore);
-            })
-
-           
-        
-            $(".crystalpics").click(function () {
-                if (
-                totalscore === randomnumber) {
-                wins += 1;
-                $("#winNumber").html(wins);
-                crystalnumbers.push(crystalnumberone, crystalnumbertwo, crystalnumberthree, crystalnumberfour);
-                $("#randomnumber").empty();
-                $("#totalscore").empty();
-                totalscore = 0;
-                randomnumber = Math.floor((Math.random() * 50) + 30);
-                $("#randomnumber").text(randomnumber);
-                reset();               
-                
-                }
-                else if(
-                    totalscore > randomnumber) {
-                loses += 1;
-                crystalnumbers.push(crystalnumberone, crystalnumbertwo, crystalnumberthree, crystalnumberfour);
-                $("#randomnumber").empty();
-                $("#totalscore").empty();
-                $("#loseNumber").html(loses);
-                totalscore = 0;
-                randomnumber = Math.floor((Math.random() * 50) + 30);
-                $("#randomnumber").text(randomnumber);      
-                reset(); 
-                
-               }
-
-               console.log("Wins: " + wins)
-               console.log("Loses: " + loses);
-
-            })
-
-       
-        });
+    <script type="text/javascript" src="assets/game.js">
 
 
     </script>
 
 
     <div class="container">
-        <div id="header" class="col-md-3">
+        <div id="header" class="jumbotron">
             <h1>CrystalsCollector</h1>
         </div>
 
         <div class="row"></div>
 
-        <div id="instructions" class="col-md-5">
+        <div id="instructions" class="col-md-6">
             <p>You will be given a random number at the start of the game.</p>
             <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total
                 score.</p>
@@ -165,32 +48,34 @@
             <p>The value of each crystal is hidden from you until you click on it</p>
             <p>Each time when the game starts, the game will change the values of each crystal.</p>
         </div>
-        <div id="tracker" class="col-md-1">
+        
+        <div id="tracker" class="col-md-6">
             <div id="wins" class="col-md-12">
                 Wins: <div id="winNumber"></div>
             </div>
+        
             <div id="loses" class="col-md-12">
                 Loses: <div id="loseNumber"></div>
             </div>
+        
+        <div class= "col-md-6"><h2>Total Score</h2></div>      
+        <div id="totalscore" class="col-md-6">
+                    </div>        
+                    <div class= "row"></div>
+                    
+        <div class= "col-md-6"><h2>Score To Match</h2></div>
+        <div id="randomnumber" class="col-md-6">
         </div>
 
-        <div id="totalscore" class="col-md-3">
-            <h2>Your Total Score is:      
-            </h2>
-        </div>
-
-        <div id="randomnumber" class="col-md-2">
             
 
-            <div class="row"></div>
-
 
 
         </div>
 
 
 
-        <div class="row"></div>
+        
 
         <div id="crystals" class="col-md-6">
             <img id="picone" class="crystalpics" src="assets/one.png" alt="Crystal">
